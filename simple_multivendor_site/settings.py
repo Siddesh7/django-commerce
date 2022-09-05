@@ -130,20 +130,19 @@ LOGIN_URL = 'vendor:login'
 LOGIN_REDIRECT_URL = 'vendor:vendor-admin'
 LOGOUT_REDIRECT_URL = 'core:home'
 
-SESSION_COOKIE_AGE = 86400 # Day in Seconds
+SESSION_COOKIE_AGE = 86400  # Day in Seconds
 CART_SESSION_ID = 'cart'
 
 
 # STRIPE PAYMENT
-STRIPE_PUB_KEY = 'pk_test_OKdhbDNME5KHtnpzYRBfNmEZ00mjM6DVsJ' # For JavaScript
-STRIPE_SECRET_KEY = 'sk_test_jaIdMJOlkcUG6QpXV5wAJxXT005aZAJVM1' # For Django Backend
+STRIPE_PUB_KEY = 'pk_test_51LVfBTJyB8WRPkAuRn7BlCb1nQWOvrOm2Qz2hUtx1WOSGlPPkGz4Sh4JWn8Y4gkVtvEZIi8qX6L9j4brUXbRGuYg00n0yP5lHC'  # For JavaScript
+STRIPE_SECRET_KEY = 'sk_test_51LVfBTJyB8WRPkAuSnN46kTwgbBR6B7QXgm1moCNXkY8iM3wVwzHbwAnB0Iq9P8xJNbrQswAZEe7DBw3cBlvUEvx00r6bmjvhw'  # For Django Backend
 
 # For Email Notification
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'YOUR-EMAIL'
-EMAIL_HOST_PASSWORD = 'YOUR-EMAIL-PASSWORD'
+EMAIL_HOST_USER = 'aaasankhya@gmail.com'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_EMAIL_FROM = 'Multi Vendor Site <YOUR-EMAIL>'
-
