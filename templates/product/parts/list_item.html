@@ -1,15 +1,27 @@
-<div class="column is-3 product-list-item">
-                <div class="box">
-                    <figure class="image is-4by3 mb-4">
-                        <img src="{{ product.get_thumbnail }}" alt="{{product.title}}">
-                    </figure>
 
-                    <h2 class="subtitle">{{product.title}}</h2>
 
-                    <h3 class="price is-size-6 mb-5">${{product.price}}</h3>
-
-                    <hr>
-
-                    <a href="{% url 'product:product' product.category.slug product.slug %}" class="button is-dark is-uppercase">View</a>
+            <div class="cards">
+                <a href="#"><div class="productcard">
+                <div class="favi">
+                <i class="material-symbols-outlined">favorite</i>
                 </div>
-            </div>
+                <img  src="{{ product.get_thumbnail }}" alt="">
+                
+                <p>{{product.title}}</p>
+                <h4>${{product.price}}</h4>
+                    <div class="butns">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <button class="button is-dark is-uppercase">Add to Cart</button>
+                                </div>
+                            </div>
+                        </form>
+                        <button>
+                            <li><a href="{% url 'product:product' product.category.slug product.slug %}">View</a></li>
+                        </button>
+                    </div>
+                </div>
+                </a>
+             </div>

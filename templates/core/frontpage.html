@@ -3,11 +3,60 @@
 {% block title %}Home Page{% endblock title %}
 
 {% block content %}
-    <div class="columns is-multiline mb-6">
-        <div class="column is-12 has-test-centered mt-6 mb-6">
-            <h2 class="is-size-3">Latest Products</h2>
-        </div>
-
+<section class="slider">
+    <div>
+        <div class="inner">
+            <h1 class="animate__animated" data-animation-in="animate__bounceInLeft">" Cool Watches "</h1>
+      <p class="animate__animated" data-animation-in="animate__bounceInUp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum cupiditate ipsam eveniet architecto at tenetur</p>
+      <h2 class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="0.5">$ 500.50</h2>
+      <a class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="1" href="">Start Buying</a>
+     
+    </div>
+    <div class="img animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="1.2" >
+        <img src="https://electro.madrasthemes.com/wp-content/uploads/2021/03/Smartwatchess.png" alt="">
+    </div>
+    </div>
+    <div>
+        <div class="inner">
+            <h1 class="animate__animated" data-animation-in="animate__bounceInLeft">" Cool Watches "</h1>
+      <p class="animate__animated" data-animation-in="animate__bounceInUp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum cupiditate ipsam eveniet architecto at tenetur</p>
+      <h2 class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="0.5">$ 500.50</h2>
+      <a class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="1" href="">Start Buying</a>
+     
+    </div>
+    <div class="img animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="1.2" >
+        <img src="https://electro.madrasthemes.com/wp-content/uploads/2021/03/Smartwatchess.png" alt="">
+    </div>
+    </div>
+    <div>
+        <div class="inner">
+            <h1 class="animate__animated" data-animation-in="animate__bounceInLeft">" Cool Watches "</h1>
+      <p class="animate__animated" data-animation-in="animate__bounceInUp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum cupiditate ipsam eveniet architecto at tenetur</p>
+      <h2 class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="0.5">$ 500.50</h2>
+      <a class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="1" href="">Start Buying</a>
+     
+    </div>
+    <div class="img animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="1.2" >
+        <img src="https://electro.madrasthemes.com/wp-content/uploads/2021/03/Smartwatchess.png" alt="">
+    </div>
+    </div>
+    <div>
+        <div class="inner">
+            <h1 class="animate__animated" data-animation-in="animate__bounceInLeft">" Cool Watches "</h1>
+      <p class="animate__animated" data-animation-in="animate__bounceInUp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum cupiditate ipsam eveniet architecto at tenetur</p>
+      <h2 class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="0.1">$ 500.50</h2>
+      <a class="animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="0.3" href="">Start Buying</a>
+     
+    </div>
+    <div class="img animate__animated" data-animation-in="animate__bounceInRight" data-delay-in="0.5" >
+        <img src="https://electro.madrasthemes.com/wp-content/uploads/2021/03/Smartwatchess.png" alt="">
+    </div>
+    </div>
+    <div>
+      <img src="https://electro.madrasthemes.com/wp-content/uploads/2017/02/HomeV3ProductBackground.jpg">
+    </div>
+  </section>
+    <div class="productcardgrid">
         {% for product in newest_products %}
             {% include 'product/parts/list_item.html' %}
         {% endfor %}

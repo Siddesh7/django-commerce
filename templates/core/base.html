@@ -1,143 +1,143 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {% block title %}Multi Vendor E-Commerce Website{% endblock title %} </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <title>{% block title %}Home Page{% endblock title %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <script type="text/javascript">
+    var user ='{{request.user}}'
+
+    function getToken(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getToken('csrftoken');
+  </script> 
+	<style>
+        
+		.material-symbols-outlined {
+		  font-variation-settings:
+		  'FILL' 1,
+		  'wght' 700,
+		  'GRAD' 0,
+		  'opsz' 48
+		}
+			</style>
 </head>
 <body>
+    <div class="top-bar">
+        <div class="box">
+        <ul class="nav float-start hidef"><li class="menu-item "><a title="Welcome to Worldwide online Store" href="#">Welcome to Worldwide Online Store</a></li>
+        </ul>
+        <ul class="nav nav-inline float-end"><li class="menu-item "><a title="Store Locator" href="#"><i class="material-symbols-outlined">pin_drop</i>Store Locator</a></li>
+        <li class="menu-item "><a title="Track Your Order" href="#"><i class="material-symbols-outlined">local_shipping</i>Track Your Order</a></li>
+        <li class="menu-item "><a title="Shop" href="#"><i class="material-symbols-outlined">shopping_bag</i>Shop</a></li>
+        <li class="menu-item "><a title="My Account" href="#"><i class="material-symbols-outlined">person</i>My Account</a></li>
+        </ul> </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="layoutaa">
+            <div class="layouta">
+                <img src="{% static 'images/logo.png' %}" alt="">
+            </div>
+            <div class="layoutb">
+            <div class="menubut">
+               <li><a title="menu" href="#"><i class="material-symbols-outlined">menu</i></a></li>
+            </div>
+            <div>
+                <form role="search" method="get" class="search-form form" action="">
+                    <label>
+                        <span class="screen-reader-text">Search for...</span>
+                        <input type="search" class="search-field" placeholder="Type something..." value="" name="s" title="" />
+                    </label>
+                    <input type="submit" class="search-submit button" value="&#xf002" />
+                </form>
 
-    <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="{% url 'core:home' %}">
-                <img src="https://2.bp.blogspot.com/-mkVne3V2tzY/Xfo99c80KUI/AAAAAAAAD_c/9EbC4qu-fYAeVjLi3ONzRZ-osIW4H3qBACK4BGAYYCw/s1600/Vijay%2BThapa%2BLogo%2BHD.png" width="112" height="28">
-                </a>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                </a>
+            </div>
+        </div>
+        <div class="layoutc">
+            <div>
+                <li><a title="favorite" href="#"><i class="material-symbols-outlined">favorite</i></a></li> 
+            </div>
+            <div>
+                <li><a title="myaccount" href="#"><i class="material-symbols-outlined">person</i></a></li> 
+            </div>
+            
+            <div class="checkout">
+                <li><a title="checkout" href=""><i class="material-symbols-outlined">shopping_cart_checkout</i><span class='badge badge-warning' id='lblCartCount'>{% if cart %}({{cart|length}}){% endif %}</span><i class="material-symbols-outlined">attach_money</i></a></li> 
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                <a class="navbar-item" href="{% url 'core:home' %}">
-                    Home
-                </a>
-                
-                {% for category in categories %}
-                    <a class="navbar-item" href="{% url 'product:category' category.slug %}">
-                        {{category.title}}
-                    </a>
-                {% endfor %}
-
-                
-
-                </div>
-
-                <div class="navbar-start">
-                    <div class="navbar-item">
-                        <form method="get" action="{% url 'product:search' %}">
-                            <div class="field has-addons">
-                                <div class="control">
-                                    <input type="search" name="query" id="" class="input" placeholder="Search...">
-                                </div>
-                                <div class="control">
-                                    <button class="button is-dark is-uppercase">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="navbar-end">
-
-                <div class="navbar-item">
-                    <a href="{% url 'cart:cart' %}" class="button is-warning">Cart {% if cart %}({{cart|length}}){% endif %}</a>
-                </div>
-                
-                {% if request.user.is_authenticated %}
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link is-capitalized">
-                    {{user.vendor.name}}
-                    </a>
-
-                    <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{% url 'vendor:vendor-admin' %}">
-                        Profile
-                    </a>
-                    <a class="navbar-item" href="{% url 'vendor:edit-vendor' %}">
-                        Update Profile
-                    </a>
-                    <a class="navbar-item" href="{% url 'vendor:add-product' %}">
-                        Add Product
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item" href="{% url 'vendor:logout' %}">
-                        Logout
-                    </a>
-                    </div>
-                </div>
-
-                {% else %}
-
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary" href="{% url 'vendor:become-vendor' %}">
-                            <strong>Become Vendor</strong>
-                        </a>
-                        <a class="button is-light" href="{% url 'vendor:login' %}">
-                            Log in
-                        </a>
-                    </div>
-                </div>
-
-                {% endif %}
-
-
-                </div>
-            </div>
-            </nav>
+        </div>
+    </div>
     </div>
     
-    <section class="section">
-        <div class="container">
+<nav class="bnav">
+    <a title="Favorite" href="#" class="bnav__link">
+      <i class="material-symbols-outlined bnav__icon">favorite</i>
+      <span class="bnav__text">favorite</span>
+    </a>
+    <a href="#" class="bnav__link nav__link--active">
+      <i class="material-symbols-outlined bnav__icon">person</i>
+      <span class="bnav__text">Profile</span>
+    </a>
+    <a href="#" class="bnav__link">
+    <i class="material-symbols-outlined bnav__icon">shopping_cart_checkout</i>
+    <span class="bnav__text">cart</span>
 
-            {% block content %}{% endblock content %}
-
-        </div>
-    </section>
-
+    </a>
+    <a href="#" class="bnav__link">
+      <i class="material-symbols-outlined bnav__icon">more_horiz</i>
+      <span class="bnav__text">more</span>
+    </a>
     
-    <footer class="footer">
-        <div class="container">
-            <h3 class="is-size-4 mb-4">Multi Vendor E-Commerce</h3>
-            
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'vendor:vendor-admin' %}">Vendor Admin</a>
-            {% else %}
-                <a href="{% url 'vendor:become-vendor' %}">Become a Vendor</a>
-            {% endif %}
-
+  </nav>
+     <div class="container">
             <br>
-            <a href="{% url 'vendor:vendors' %}">All Vendors</a>
+            {% block content %}
 
-        </div>
-    </footer>
 
-    <script src="{% static 'js/main.js' %}"></script>
-    {% block scripts %}
-    {% endblock scripts %}
+            {% endblock content %}
+         </div>
+
+
+		 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+		 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		 <script src="{% static 'js/slick-animation.min.js' %}"></script>
+		 <script src="{% static 'js/main.js' %}" defer></script>
+		 <script>
+			 $(document).ready(function(){
+			 $(".slider").slick({
+			 dots: true,
+			 vertical: false,
+			 centerMode: false,
+			 arrows:false,
+			 slidesToShow: 1,
+			 slidesToScroll: 1
+		   }).slickAnimation();
+		 
+		 });
+		 </script>
 
 </body>
 </html>
